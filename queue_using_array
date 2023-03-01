@@ -1,0 +1,77 @@
+#include<stdio.h>
+#include<stdlib.h>
+#define max 50
+int front=-1,rear=-1,q[max],i,j,choice;
+void insert()
+{
+    if(rear==max-1)
+    {
+        printf("queue overflow");
+
+    }
+    else if(front==-1)
+    {
+        front=0;
+
+    }
+    else
+    {
+      printf("enter the element:");
+      scanf("%d",&i);
+      rear++;
+      q[rear]=i;
+    }
+}
+
+void delete()
+{
+    if(front==-1||front>rear)
+    {
+        printf("queue undeflow");
+
+    }
+    else 
+    {
+        printf("deleted element is %d",q[front]);
+        front++;
+
+    }
+
+}
+
+void display()
+{
+    if(front==-1)
+    {
+        printf("queue is empty");
+    }
+    else 
+    {
+        for(j=front;j<rear;j++)
+        {
+            printf("%d",q[j]);
+            printf("\n");
+        }
+    }
+}
+
+int main()
+{
+    do
+    {
+      printf("\n 1.insert\n 2.delete\n 3. display\n 4.exit\n");
+      printf("enter your choice:");
+      scanf("%d",&choice);
+      switch(choice)
+      {
+        case 1:insert();break;
+        case 2: delete();break;
+        case 3: display();break;
+        case 4:printf("you exit");break;
+        default:printf("enter valid choice");
+
+      }
+    }
+    while(choice!=4);
+    return 0;
+}
